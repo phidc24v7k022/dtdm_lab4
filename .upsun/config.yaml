@@ -1,13 +1,14 @@
 applications:
   myapp:
     type: 'php:8.3'
-    web:
-      locations:
-        '/':
-          root: ''
-          passthru: '/index.php'
+    hooks:
+      build: 'composer install'
+
+services:
+  db:
+    type: 'mariadb:11.4'
 
 routes:
-  "https://{default}/":
+  'https://{default}/':
     type: upstream
-    upstream: "myapp:http"
+    upstream: 'myapp:http'
