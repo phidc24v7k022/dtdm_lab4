@@ -1,14 +1,38 @@
+# applications:
+#   myapp:
+#     type: 'php:8.3'
+#     dependencies:
+#       php:
+#         composer/composer: '^2'
+#     web:
+#       locations:
+#         '/':
+#           root: ''
+#           passthru: '/index.php'
+
+# routes:
+#   "https://{default}/":
+#     type: upstream
+#     upstream: "myapp:http"
+
 applications:
   myapp:
     type: 'php:8.3'
     dependencies:
       php:
         composer/composer: '^2'
+    relationships:
+      database: "db:mysql"
     web:
       locations:
         '/':
           root: ''
           passthru: '/index.php'
+
+services:
+  db:
+    type: mariadb:11.4
+    disk: 1024
 
 routes:
   "https://{default}/":

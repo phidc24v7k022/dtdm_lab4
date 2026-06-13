@@ -2,6 +2,7 @@
     "name": "phidc24v7k022/dtdm_lab4",
     "description": "PHP Info demo",
     "require": {
-        "php": ">=8.3"
+        "php": ">=8.3",
+        "platformsh/config-reader": "^3.0"
     }
 }
