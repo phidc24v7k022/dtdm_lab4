@@ -10,6 +10,7 @@ if (!$config->isValidPlatform()) {
 
 $credentials = $config->credentials('database');
 $dsn = sprintf('mysql:host=%s;port=%d;dbname=%s', $credentials['host'], $credentials['port'], $credentials['path']);
+echo "<br>".$dsn;
 
 try {
     $conn = new \PDO($dsn, $credentials['username'], $credentials['password'], [
@@ -46,9 +47,9 @@ try {
         print "</tbody></table>";
     }
 
-    // Xóa bảng (bỏ comment nếu muốn xóa sau khi test)
-    // $sql = "DROP TABLE People";
-    // $conn->query($sql);
+    // Xóa bảng
+    $sql = "DROP TABLE People";
+    $conn->query($sql);
 
 } catch (\Exception $e) {
     print $e->getMessage();
