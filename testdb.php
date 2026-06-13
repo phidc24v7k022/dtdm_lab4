@@ -13,11 +13,11 @@ $dsn = sprintf('mysql:host=%s;port=%d;dbname=%s', $credentials['host'], $credent
 echo "<br>".$dsn;
 
 try {
-    // $conn = new \PDO($dsn, $credentials['username'], $credentials['password'], [
-    //     \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-    //     \PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE,
-    //     \PDO::MYSQL_ATTR_FOUND_ROWS => TRUE,
-    // ]);
+    $conn = new \PDO($dsn, $credentials['username'], $credentials['password'], [
+        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+        \PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => TRUE,
+        \PDO::MYSQL_ATTR_FOUND_ROWS => TRUE,
+    ]);
 
     // // Tạo bảng
     // $sql = "CREATE TABLE IF NOT EXISTS People (
